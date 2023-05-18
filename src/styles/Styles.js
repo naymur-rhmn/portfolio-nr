@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const Lists = styled.ul`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   z-index: 555;
 `;
 export const ListItem = styled.li`
@@ -25,12 +25,16 @@ export const ListItem = styled.li`
   color: var(--secondary-text);
   & a {
     color: var(--secondary-text);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
   }
   & a:hover {
     color: var(--lightGreen);
   }
   & span {
-    font-size: 15px;
-    padding-right: 5px;
+    font-size: 18px;
+    padding-right: 3px;
+    letter-spacing: 2px;
   }
 `;

@@ -25,7 +25,7 @@ const TitleDiv = styled.div`
     text-transform: uppercase;
     position: relative;
     text-align: center;
-    color: var(--color-first);
+    color: var(--secondary-text);
     grid-column: 1 / -1;
     grid-row: 1 / 1;
   }
@@ -43,7 +43,7 @@ const TitleDiv = styled.div`
   & .border {
     height: 4px;
     width: 100px;
-    background-color: green;
+    background-color: var(--lightGreen);
     grid-column: 1 / -1;
     grid-row: 1 / 1;
     transform: translateY(30px);

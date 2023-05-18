@@ -9,11 +9,13 @@ const Navbar = () => {
   return (
     <Header style={show ? style.active : style.hidden}>
       <Wraper>
-        <LogoWraper>
-          <LogoRound>
-            <Logo src='/images/logo.png' />
-          </LogoRound>
-        </LogoWraper>
+        <a href='/'>
+          <LogoWraper>
+            <LogoRound>
+              <Logo src='/images/logo.png' />
+            </LogoRound>
+          </LogoWraper>
+        </a>
         <Nav>
           <Lists>
             <ListItem>
@@ -22,12 +24,7 @@ const Navbar = () => {
               </a>
             </ListItem>
             <ListItem>
-              <a href=''>
-                <span>02.</span>Experience
-              </a>
-            </ListItem>
-            <ListItem>
-              <a href=''>
+              <a href='#portfolio'>
                 <span>03.</span>Work
               </a>
             </ListItem>
@@ -38,7 +35,13 @@ const Navbar = () => {
             </ListItem>
             <ListItem>
               <Button>
-                <a href=''>Resume</a>
+                <div></div>
+                <a
+                  href='https://drive.google.com/file/d/176A8g7FTQVPQR9EyDOQdyo1jdX1AvFWB/view?usp=share_link'
+                  target='_blank'
+                >
+                  Resume
+                </a>
               </Button>
             </ListItem>
           </Lists>
@@ -59,7 +62,6 @@ const Header = styled.header`
   height: 100px;
   width: 100%;
   background-color: var(--bg-first);
-  /* background-color: transparent; */
   position: fixed;
   top: 0;
   transition: all 0.5s ease-out;
@@ -67,8 +69,6 @@ const Header = styled.header`
   box-shadow: 0px -5px 10px green;
 `;
 const Wraper = styled.div`
-  /* max-width: 1480px; */
-  /* background-color: #aaaace; */
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -112,11 +112,32 @@ const Nav = styled.nav`
   display: flex;
 `;
 const Button = styled.div`
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: var(--lightGreen);
+    z-index: -1;
+    border-radius: 5px;
+  }
   & a {
     font-family: var(--firaCode);
     display: inline-block;
-    border: 1px solid black;
-    padding: 7px 13px;
+    border: 2px solid var(--lightGreen);
+    background-color: var(--bg-first);
+    padding: 8px 16px;
     border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    color: var(--lightGreen);
+    z-index: 999;
+    cursor: pointer;
+  }
+  & a:hover {
+    transform: translateX(-5px) translateY(-4px);
+    color: var(--lightGreen);
   }
 `;

@@ -14,7 +14,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <Wrap>
+    <Wrap id='portfolio'>
       <Container>
         <ProjectElements>
           <Title title='My Work' subTitle='Portfolio' />
