@@ -17,7 +17,7 @@ const Projects = () => {
     <Wrap>
       <Container>
         <ProjectElements>
-          <Title />
+          <Title title='My Work' subTitle='Portfolio' />
           {projectData.map((data) => (
             <Project key={data.id} data={data} />
           ))}
@@ -30,7 +30,7 @@ const Projects = () => {
 export default Projects;
 
 const Wrap = styled.section`
-  background-color: var(--bg-five);
+  background-color: var(--bg-second);
 `;
 const ProjectElements = styled.div`
   padding: 10vh 0;

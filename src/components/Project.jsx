@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
+import { ListItem, Lists } from '../styles/Styles';
 
 const Project = ({ data }) => {
   const { id, title, img, desc, refs, links } = data;
-  const [isOdd, setIsOdd] = useState(true);
+  const [isodd, setIsOdd] = useState(true);
 
   const evenOrOdd = (n) => {
     if (parseInt(n) % 2 !== 0) {
@@ -13,17 +14,16 @@ const Project = ({ data }) => {
     }
   };
   useEffect(() => evenOrOdd(id), []);
-  console.log(refs);
   return (
     <Layer>
       <SliceOne>
         {/* conditional rendering */}
-        {isOdd ? (
+        {isodd ? (
           <Link href='' traget='_blank'>
             <Image src={img} alt={title + 'Thumbnail'} />
           </Link>
         ) : (
-          <Content isOdd={isOdd}>
+          <Content isodd={isodd ? 1 : 0}>
             <p>Featured Project</p>
             <ProjectTitle>{title}</ProjectTitle>
             <Card>
@@ -32,7 +32,7 @@ const Project = ({ data }) => {
                 Impedit quae
               </Paragraph>
             </Card>
-            <Materials isOdd={isOdd}>
+            <Materials isodd={isodd ? 1 : 0}>
               <Lists>
                 {refs.map((ref, i) => (
                   <ListItem key={i}>{ref}</ListItem>
@@ -45,8 +45,8 @@ const Project = ({ data }) => {
 
       <SliceTwo>
         {/* conditional rendering */}
-        {isOdd ? (
-          <Content isOdd={isOdd}>
+        {isodd ? (
+          <Content isodd={isodd ? 1 : 0}>
             <p>Featured Project</p>
             <ProjectTitle>{title}</ProjectTitle>
             <Card>
@@ -55,7 +55,7 @@ const Project = ({ data }) => {
                 Impedit quae
               </Paragraph>
             </Card>
-            <Materials isOdd={isOdd}>
+            <Materials isodd={isodd ? 1 : 0}>
               <Lists>
                 {refs.map((ref, i) => (
                   <ListItem key={i}>{ref}</ListItem>
@@ -107,6 +107,18 @@ const Image = styled.img`
   background-color: gray;
   min-height: 200px;
   max-height: 400px;
+  border-radius: 5px;
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: #fff;
+    z-index: 55;
+  }
 `;
 const Content = styled.div``;
 const ProjectTitle = styled.h3`
@@ -124,12 +136,5 @@ const Paragraph = styled.p`
 `;
 const Materials = styled.div`
   display: flex;
-  justify-content: ${(props) => (props.isOdd ? 'flex-end' : 'flex-start')};
-`;
-const Lists = styled.ul`
-  display: flex;
-  gap: 15px;
-`;
-const ListItem = styled.li`
-  list-style: none;
+  justify-content: ${(props) => (props.isodd ? 'flex-end' : 'flex-start')};
 `;

@@ -8,7 +8,7 @@ const About = () => {
     <Wrap>
       <Container>
         <Content>
-          <Title />
+          <Title title='Know Me More' subTitle='About Me' />
           <Layer>
             <LeftContent>
               <p>
@@ -64,7 +64,7 @@ const About = () => {
 export default About;
 
 const Wrap = styled.section`
-  background-color: var(--bg-two);
+  background-color: var(--bg-third);
 `;
 
 const Content = styled.div`
