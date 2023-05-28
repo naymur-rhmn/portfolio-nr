@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { styled } from 'styled-components';
+
 import { Container } from '../styles/Styles';
 import Title from './Title';
+
 import { VscTriangleRight } from 'react-icons/vsc';
 
 const About = () => {
@@ -11,62 +14,89 @@ const About = () => {
         <Content>
           <Title title='Know Me More' subTitle='About Me' />
           <Layer>
+            {/* left content start */}
             <LeftContent>
               <p>
                 Hello there! I'm Naymur Rahman, a passionate frontend web
                 developer with a strong focus on creating visually appealing and
                 user-friendly websites.
-                <br /> As a junior developer, I am constantly learning and
-                expanding my skill set.{' '}
+              </p>
+              <p>
+                As a junior developer, I am constantly learning and expanding my
+                skill set.{' '}
                 <span>
                   {' '}
                   I have a solid foundation in HTML, CSS, and JavaScript, and I
-                  am eager to dive deeper into frontend frameworks and
-                  libraries.
+                  am eager to dive deeper into frontend frameworks and libraries
+                  like React.js.
                 </span>
-                <br />I find immense joy in crafting <span>
-                  pixel-perfect
-                </span>{' '}
-                , <span>responsive</span> interfaces that not only look great
-                but also provide seamless user experiences.
               </p>
               <p>
+                I find immense joy in crafting <span>pixel-perfect</span> ,{' '}
+                <span>responsive</span> interfaces that not only look great but
+                also provide seamless user experiences.
+              </p>
+              {/* <p>
                 Beyond technical skills, I bring a positive and proactive
                 mindset to every project. I am resourceful, solution-oriented,
                 and eager to tackle challenges head-on. I understand the
                 importance of time management and meeting deadlines, and I am
                 committed to delivering high-quality work on schedule.
-              </p>
+              </p> */}
               <p>
                 I am excited about the opportunity to contribute my skills and
                 learn from <span>experienced professionals</span> in a
                 collaborative and dynamic environment. I am eager to make a
                 meaningful impact and grow as a frontend web developer.
               </p>
-              <p className='skills'>
-                Here are a few technologies I’ve been working with recently:
-              </p>
+
+              <p className='skills'>My Skillset:</p>
               <Skills>
                 <Skillset>
                   <Lists>
-                    <VscTriangleRight />
-                    Javascript (Es6)
+                    <VscTriangleRight className='angle' />
+                    JavaScript (ES6)
                   </Lists>
-                  <Lists>React</Lists>
-                  <Lists>Tailwind</Lists>
-                  <Lists>Css3</Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> React.js
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> Tailwind CSS
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> Material UI
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> Html5
+                  </Lists>
                 </Skillset>
+
                 <Skillset>
-                  <Lists>Html5</Lists>
-                  <Lists>React</Lists>
-                  <Lists>Tailwind</Lists>
-                  <Lists>Reacaaaaaaat</Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> Node.js
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> Express.js
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> MongoDB
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> Firebase
+                  </Lists>
+                  <Lists>
+                    <VscTriangleRight className='angle' /> CSS3
+                  </Lists>
                 </Skillset>
               </Skills>
             </LeftContent>
+
+            {/* right Content start */}
             <RightContent>
               <PhotoWraper>
-                <Photo src='./images/nr.jpg' alt='image' />
+                <ImgOverlay className='testA'>
+                  <Photo className='testB' src='./images/nr.jpg' alt='image' />
+                </ImgOverlay>
               </PhotoWraper>
             </RightContent>
           </Layer>
@@ -78,6 +108,7 @@ const About = () => {
 
 export default About;
 
+//wraper
 const Wrap = styled.section`
   background-color: var(--bg-third);
   z-index: 999;
@@ -91,55 +122,69 @@ const Content = styled.div`
   padding: 10vh 0;
   z-index: 999;
 `;
+// layer
 const Layer = styled.div`
   display: grid;
   grid-template-columns: 3fr 2fr;
   gap: 50px;
+  @media (max-width: 892px) {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
 `;
+// left content
 const LeftContent = styled.div`
+  position: relative;
+  z-index: 99;
   & p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.4;
     padding-bottom: 14px;
     & span {
-      font-weight: bold;
+      font-weight: 600;
     }
   }
   & p.skills {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
     color: var();
+    @media (max-width: 892px) {
+      text-align: center;
+    }
   }
 `;
 const Skills = styled.ul`
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-`;
-const Skillset = styled.ul`
-  list-style: none;
-`;
-const Lists = styled.li`
-  color: var(--secondary-text);
-  font-size: 20px;
-  padding: 4px 0;
-`;
-const RightContent = styled.div`
-  &::after {
-    position: relative;
-    top: 0;
-    left: 0;
-    content: '';
-    height: 100%;
-    width: 100%;
-    background-color: red;
+  @media (max-width: 892px) {
+    display: flex;
+    justify-content: space-around;
   }
 `;
-const PhotoWraper = styled.div`
-  max-width: 500px;
-  max-height: 500px;
+const Skillset = styled.div``;
+const Lists = styled.li`
+  color: var(--secondary-text);
+  font-size: 16px;
+  padding: 4px 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  & .angle {
+    color: var(--lightGreen);
+  }
+`;
+// right content image section
+const RightContent = styled.div`
   position: relative;
+  z-index: 99;
+`;
+const PhotoWraper = styled.div`
+  max-width: 360px;
+  max-height: 360px;
+  position: relative;
+  z-index: 1;
   &:before {
     position: absolute;
     top: 0;
@@ -147,21 +192,70 @@ const PhotoWraper = styled.div`
     height: 100%;
     width: 100%;
     content: '';
-    background-color: #ffff;
+    background-color: var(--lightGreen);
+    z-index: -1;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 892px) {
+    margin: 0 auto;
+    border-radius: 50%;
+    &:before {
+      border-radius: 50%;
+    }
+  }
+`;
+const ImgOverlay = styled.div`
+  transition: all 0.3s ease-in-out;
+  display: block;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    background-color: var(--bg-card);
+    opacity: 0.4;
+    mix-blend-mode: darken;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover:after {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-8px) translateY(-8px);
+  }
+  &:hover > .testB {
+    transform: translateX(-8px) translateY(-8px);
+  }
+
+  @media (max-width: 892px) {
+    border-radius: 50%;
+    &:after {
+      border-radius: 50%;
+    }
+    &:hover > .testB {
+      transform: scale(0.96) rotate(-6deg);
+      box-shadow: 0 0 8px 4px rgba(68, 244, 127, 0.23);
+    }
   }
 `;
 const Photo = styled.img`
   display: block;
-  height: 260px;
+  height: 100%;
   width: 100%;
+  margin: 0 auto;
+  background-color: var(--lightGreen);
+  transition: all 0.3s;
+  border-radius: 5px;
+  box-shadow: 0px 0 8px 1px rgba(14, 147, 14, 0.173);
   position: relative;
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    height: 100%;
-    width: 100%;
-    background-color: red;
+
+  @media (max-width: 892px) {
+    margin: 0 auto;
+    border-radius: 50%;
   }
 `;

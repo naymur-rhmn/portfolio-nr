@@ -4,25 +4,25 @@ import Hero from './components/Hero';
 import styled from 'styled-components';
 import Projects from './components/Projects';
 import Navbar from './components/Navbar';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <Appp>
+    <Application>
       <Navbar />
       <Hero />
       <About />
       <Projects />
-    </Appp>
+      <Contact />
+      <Footer />
+    </Application>
   );
 }
 
 export default App;
 
-const Appp = styled.div`
+const Application = styled.div`
   background-color: var(--bg-navy);
   min-height: 100vh;
-  /* padding: 0 2rem;
-  @media (max-width: 992px) {
-    padding: 0;
-  } */
 `;
