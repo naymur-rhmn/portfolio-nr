@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+//emailjs
+import emailjs from '@emailjs/browser';
 // styled components
 import { styled } from 'styled-components';
 import { Container } from '../styles/Styles';
@@ -11,21 +13,98 @@ import {
   BsFillTelephoneFill,
 } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
+import { GiCheckMark } from 'react-icons/gi';
+import { TfiLinkedin } from 'react-icons/tfi';
 
 const Contact = () => {
+  const [result, setResult] = useState(false);
+  const [error, setError] = useState(false);
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_coj52h3',
+        'template_s310f8v',
+        form.current,
+        'fwUsdkE743MoDcsFn'
+      )
+      .then(
+        (result) => {
+          form.current.reset();
+          setResult(true);
+        },
+        (error) => {
+          setResult(false);
+          setError(true);
+        }
+      );
+    setTimeout(() => {
+      setResult(false);
+      setError(false);
+    }, 3000);
+  };
+
   return (
     <Wrap id='contact'>
       <Container>
-        <ContactBody>
-          <ContactForm action=''>
-            <input type='text' placeholder='Your Name' />
-            <input type='email' placeholder='Your Valid email' />
-            <textarea placeholder='Your Message'></textarea>
-            <button>Send Message</button>
+        <ContactBody
+          data-aos='fade'
+          data-aos-easing='ease-in-out'
+          data-aos-delay='300'
+          data-aos-offset='50'
+          data-aos-once='true'
+        >
+          <ContactForm
+            ref={form}
+            onSubmit={sendEmail}
+            data-aos='fade-up'
+            data-aos-easing='ease-in-out'
+            data-aos-delay='300'
+            data-aos-offset='100'
+            data-aos-once='true'
+          >
+            <input
+              type='text'
+              name='user_name'
+              placeholder='Your Name'
+              required
+            />
+            <input
+              type='email'
+              name='user_email'
+              placeholder='Your Email'
+              required
+            />
+            <textarea
+              name='message'
+              placeholder='Your Message'
+              required
+            ></textarea>
+            <button type='submit' value='Send'>
+              Send Message
+            </button>
+            <ReturnMessage>
+              {result && (
+                <p>
+                  <GiCheckMark /> Message Sent Successfully!
+                </p>
+              )}
+              {error && <p className='error'>Ops, Message not Sent!</p>}
+            </ReturnMessage>
           </ContactForm>
 
-          <ContactContent>
-            =<ContactTitle>Contact</ContactTitle>
+          <ContactContent
+            data-aos='fade-up'
+            data-aos-easing='ease-in-out'
+            data-aos-delay='300'
+            data-aos-offset='100'
+            data-aos-once='true'
+          >
+            <ContactTitle>Contact</ContactTitle>
             <ContactTitleTwo>Me</ContactTitleTwo>
             {/* content Wraper */}
             <ContentWraper>
@@ -47,13 +126,13 @@ const Contact = () => {
                     <BsFacebook />
                   </Link>
                   <Link href='#'>
-                    <BsGithub />
-                  </Link>
-                  <Link href='#'>
-                    <BsLinkedin />
-                  </Link>
-                  <Link href='#'>
                     <BsTwitter />
+                  </Link>
+                  <Link href='#'>
+                    <TfiLinkedin />
+                  </Link>
+                  <Link href='#'>
+                    <BsGithub />
                   </Link>
                 </SocialLinks>
               </ContactInfo>
@@ -139,6 +218,13 @@ const ContactForm = styled.form`
     width: 220px;
     text-transform: uppercase;
     display: block;
+    padding-top: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  & button:hover {
+    background: #27e3c4f1;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 9.55em 0 0 0 rgb(5, 251, 235);
   }
   @media (max-width: 992px) {
     & button {
@@ -154,6 +240,28 @@ const ContactForm = styled.form`
       height: 55px;
       width: 180px;
     }
+    & button:hover {
+      box-shadow: inset 8.19em 0 0 0 rgb(5, 251, 235);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+`;
+const ReturnMessage = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 30px;
+  margin-top: 10px;
+  & p {
+    /* background: #b6ebcb; */
+    display: inline-block;
+    border-radius: 5px;
+    padding: 2px 14px;
+    color: #1aab62;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  & p.error {
+    color: #f78787e7;
   }
 `;
 

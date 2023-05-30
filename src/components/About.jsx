@@ -11,11 +11,23 @@ const About = () => {
   return (
     <Wrap id='about'>
       <Container>
-        <Content>
+        <Content
+          data-aos='fade-up'
+          data-aos-easing='ease-in-out'
+          data-aos-delay='100'
+          data-aos-offset='50'
+          data-aos-once='true'
+        >
           <Title title='Know Me More' subTitle='About Me' />
           <Layer>
             {/* left content start */}
-            <LeftContent>
+            <LeftContent
+              data-aos='fade-up'
+              data-aos-easing='ease-in-out'
+              data-aos-delay='100'
+              data-aos-offset='50'
+              data-aos-once='true'
+            >
               <p>
                 Hello there! I'm Naymur Rahman, a passionate frontend web
                 developer with a strong focus on creating visually appealing and
@@ -50,52 +62,70 @@ const About = () => {
                 meaningful impact and grow as a frontend web developer.
               </p>
 
-              <p className='skills'>My Skillset:</p>
-              <Skills>
-                <Skillset>
-                  <Lists>
-                    <VscTriangleRight className='angle' />
-                    JavaScript (ES6)
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> React.js
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> Tailwind CSS
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> Material UI
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> Html5
-                  </Lists>
-                </Skillset>
+              <SkillWraper
+                data-aos='fade-up'
+                data-aos-easing='ease-in-out'
+                data-aos-delay='100'
+                data-aos-offset='50'
+                data-aos-once='true'
+              >
+                <p className='skills'>My Skillset:</p>
+                <Skills>
+                  <Skillset>
+                    <Lists>
+                      <VscTriangleRight className='angle' />
+                      JavaScript (ES6)
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> React.js
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> Tailwind CSS
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> Material UI
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> Html5
+                    </Lists>
+                  </Skillset>
 
-                <Skillset>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> Node.js
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> Express.js
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> MongoDB
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> Firebase
-                  </Lists>
-                  <Lists>
-                    <VscTriangleRight className='angle' /> CSS3
-                  </Lists>
-                </Skillset>
-              </Skills>
+                  <Skillset>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> Node.js
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> Express.js
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> MongoDB
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> Firebase
+                    </Lists>
+                    <Lists>
+                      <VscTriangleRight className='angle' /> CSS3
+                    </Lists>
+                  </Skillset>
+                </Skills>
+              </SkillWraper>
             </LeftContent>
 
             {/* right Content start */}
             <RightContent>
-              <PhotoWraper>
+              <PhotoWraper
+                data-aos='fade-up'
+                data-aos-easing='ease-in-out'
+                data-aos-delay='100'
+                data-aos-offset='50'
+                data-aos-once='true'
+              >
                 <ImgOverlay className='testA'>
-                  <Photo className='testB' src='./images/nr.jpg' alt='image' />
+                  <Photo
+                    className='testB'
+                    src='./images/nr.jpg'
+                    alt='owners photo'
+                  />
                 </ImgOverlay>
               </PhotoWraper>
             </RightContent>
@@ -154,6 +184,7 @@ const LeftContent = styled.div`
     }
   }
 `;
+const SkillWraper = styled.div``;
 const Skills = styled.ul`
   list-style: none;
   display: grid;

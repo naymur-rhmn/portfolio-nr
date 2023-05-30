@@ -19,7 +19,13 @@ const Projects = () => {
   return (
     <Wrap id='portfolio'>
       <Container>
-        <ProjectElements>
+        <ProjectElements
+          data-aos='fade-up'
+          data-aos-easing='ease-in-out'
+          data-aos-delay='100'
+          data-aos-offset='50'
+          data-aos-once='true'
+        >
           <Title title='My Work' subTitle='Portfolio' />
           {/* map projectData to access every single item data  */}
           {projectData.map((data) => (

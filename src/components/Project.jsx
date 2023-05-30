@@ -22,7 +22,13 @@ const Project = ({ data }) => {
   useEffect(() => evenOrOdd(id), []);
 
   return (
-    <Layer>
+    <Layer
+      data-aos='fade-up'
+      data-aos-easing='ease-in-out'
+      data-aos-delay='120'
+      data-aos-offset='120'
+      data-aos-once='true'
+    >
       <SliceOne>
         {/* conditional rendering */}
         {isodd ? (

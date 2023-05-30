@@ -21,30 +21,61 @@ const Navbar = () => {
         <Nav>
           <Lists className='lists'>
             <ListItem>
-              <a href='#about'>
-                <span>01.</span>About
+              <a
+                href='#about'
+                className='contact-me'
+                data-aos='fade'
+                data-aos-easing='ease-in-out'
+                data-aos-delay='100'
+                data-aos-offset='50'
+                data-aos-once='true'
+              >
+                About
               </a>
             </ListItem>
             <ListItem>
-              <a href='#portfolio'>
-                <span>03.</span>Portfolio
+              <a
+                href='#portfolio'
+                className='contact-me'
+                data-aos='fade'
+                data-aos-easing='ease-in-out'
+                data-aos-delay='300'
+                data-aos-offset='50'
+                data-aos-once='true'
+              >
+                Portfolio
               </a>
             </ListItem>
             <ListItem>
-              <a href='#contact'>
-                <span>04.</span>Contact
+              <a
+                href='#contact'
+                className='contact-me'
+                data-aos='fade'
+                data-aos-easing='ease-in-out'
+                data-aos-delay='450'
+                data-aos-offset='50'
+                data-aos-once='true'
+              >
+                Contact
               </a>
             </ListItem>
             <ListItem>
-              <Button>
-                <div></div>
-                <a
-                  href='https://drive.google.com/file/d/176A8g7FTQVPQR9EyDOQdyo1jdX1AvFWB/view?usp=share_link'
-                  target='_blank'
-                >
-                  Resume
-                </a>
-              </Button>
+              <div
+                data-aos='fade'
+                data-aos-easing='ease-in-out'
+                data-aos-delay='500'
+                data-aos-offset='50'
+                data-aos-once='true'
+              >
+                <Button>
+                  <a
+                    href='https://drive.google.com/file/d/176A8g7FTQVPQR9EyDOQdyo1jdX1AvFWB/view?usp=share_link'
+                    target='_blank'
+                  >
+                    Resume
+                  </a>
+                </Button>
+              </div>
             </ListItem>
           </Lists>
           {/* hamburger icon */}

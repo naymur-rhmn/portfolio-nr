@@ -17,6 +17,7 @@ a {
 html,
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   font-family: 'Inter', sans-serif;
@@ -39,29 +40,20 @@ p {
   --bg-third: #333a40;
   --bg-card: #10213e;
 
-  --shadow: #43a047;
-  --scrollbarBG: #eee;
-  --thumbBG: #66bb6a;
-
   --firaCode: 'Fira Code', monospace;
   --inter: 'Inter', sans-serif;
   --poppins: 'Poppins', sans-serif;
 }
 
-/* background: rgb(2,103,152);
-background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%); */
-
 /* custorm scrollbar  */
-
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--scrollbarBG);
+  background: var(--bg-card);
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--lightGreen);
-  box-shadow: 0 -100vh 0 100vh var(--bg-card), 0 0 15px 5px rgb(21, 106, 142);
   border-radius: 10px;
 }
 
@@ -92,7 +84,7 @@ background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--lightGreen);
+  background: var(--lightGreen);
   color: var(--bg-card);
   border-radius: 50px;
   z-index: 100;
@@ -106,13 +98,21 @@ background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%
   overflow: hidden;
   cursor: pointer;
   border: none;
-  z-index: 9999;
+  z-index: 99999;
+  transition: all 0.3s;
 }
+.btn-contact:hover {
+  background: #27e3c4f1;
+  transition: 0.3s;
+  box-shadow: inset 12.4em 0 0 0 rgb(5, 251, 235);
+}
+/* rgb(50, 189, 180) */
 .envelope {
   visibility: hidden;
   width: 0;
   height: 0;
   transition: all 0.3s ease-in-out;
+  z-index: 99999;
 }
 .btn-contact span {
   font-size: 18px;
@@ -128,7 +128,7 @@ background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  z-index: 9999;
+  z-index: 99999;
 }
 .sticky .envelope {
   visibility: visible;
@@ -136,6 +136,7 @@ background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%
   height: 40px;
   transition: all 0.3s ease-in-out;
   animation: shake infinite 2s;
+  z-index: 99999;
 }
 .sticky span {
   visibility: hidden;
@@ -169,7 +170,7 @@ background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%
   }
 }
 
-/* responsive design */
+/* responsive style */
 @media (max-width: 1392px) {
   .sticky {
     left: calc(100% - 55px);
@@ -208,5 +209,8 @@ background: linear-gradient(90deg, rgba(2,103,152,1) 0%, rgba(96,194,231,1) 100%
 
     left: calc(100% - 40px);
     bottom: 70px;
+  }
+  .btn-contact:hover {
+    box-shadow: inset 9.8em 0 0 0 rgb(5, 251, 235);
   }
 }
